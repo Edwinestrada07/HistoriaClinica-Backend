@@ -4,19 +4,19 @@
 
 const authorizeRoles = (...roles) => {
 
-  return (req, res, next) => {
+    return (req, res, next) => {
 
-    if (!roles.includes(req.usuario.rol)) {
+        if (!roles.includes(req.usuario.rol)) {
 
-      return res.status(403).json({
-        message: "Acceso denegado"
-      });
+        return res.status(403).json({
+            message: "Acceso denegado"
+        });
 
-    }
+        }
 
-    next();
+        next();
 
-  };
+    };
 
 };
 

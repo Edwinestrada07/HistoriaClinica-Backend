@@ -14,25 +14,25 @@ require("./models");
 const PORT = process.env.PORT || 3000;
 
 async function main() {
-  try {
+    try {
 
-    await sequelize.authenticate();
+        await sequelize.authenticate();
 
-    console.log("Base de datos conectada");
+        console.log("Base de datos conectada");
 
-    await sequelize.sync({
-      alter: true
-    });
+        await sequelize.sync({
+            alter: true
+        });
 
-    console.log("Modelos sincronizados");
+        console.log("Modelos sincronizados");
 
-    app.listen(PORT, () => {
-      console.log(`Servidor ejecutándose en puerto ${PORT}`);
-    });
+        app.listen(PORT, () => {
+            console.log(`Servidor ejecutándose en puerto ${PORT}`);
+        });
 
-  } catch (error) {
-    console.error(error);
-  }
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 main();

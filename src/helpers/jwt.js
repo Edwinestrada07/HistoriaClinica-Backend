@@ -9,12 +9,12 @@ const generarJWT = (usuario) => {
 
   return jwt.sign(
     {
-      documento: usuario.documento,
-      rol: usuario.rol
+        documento: usuario.documento,
+        rol: usuario.rol
     },
     process.env.JWT_SECRET,
     {
-      expiresIn: "1h"
+        expiresIn: "1h"
     }
   );
 

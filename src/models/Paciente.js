@@ -7,30 +7,30 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../database/database");
 
 const Paciente = sequelize.define(
-  "Paciente",
-  {
-    documento: {
-      type: DataTypes.BIGINT,
-      primaryKey: true,
-      allowNull: false
-    },
+	"Paciente",
+	{
+		documento: {
+			type: DataTypes.BIGINT,
+			primaryKey: true,
+			allowNull: false
+		},
 
-    fechaNacimiento: {
-      type: DataTypes.DATEONLY,
-      allowNull: false  
-    },
+		fechaNacimiento: {
+			type: DataTypes.DATEONLY,
+			allowNull: false  
+		},
 
-    direccion: {
-      type: DataTypes.STRING
-    },
+		direccion: {
+			type: DataTypes.STRING
+		},
 
-    telefono: {
-      type: DataTypes.STRING(20)
-    }
-  },
-  {
-    tableName: "pacientes"
-  }
+		telefono: {
+			type: DataTypes.STRING(20)
+		}
+	},
+	{
+		tableName: "pacientes"
+	}
 );
 
 module.exports = Paciente;

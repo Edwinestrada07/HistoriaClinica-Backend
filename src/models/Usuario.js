@@ -6,57 +6,57 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../database/database");
 
 const Usuario = sequelize.define(
-  "Usuario",
-  {
-    documento: {
-      type: DataTypes.BIGINT,
-      primaryKey: true,
-      allowNull: false
-    },
+    "Usuario",
+    {
+        documento: {
+            type: DataTypes.BIGINT,
+            primaryKey: true,
+            allowNull: false
+        },
 
-    nombres: {
-      type: DataTypes.STRING(100),
-      allowNull: false
-    },
+        nombres: {
+            type: DataTypes.STRING(100),
+            allowNull: false
+        },
 
-    apellidos: {
-      type: DataTypes.STRING(100),
-      allowNull: false
-    },
+        apellidos: {
+            type: DataTypes.STRING(100),
+            allowNull: false
+        },
 
-    correo: {
-      type: DataTypes.STRING(150),
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true
-      }
-    },
+        correo: {
+            type: DataTypes.STRING(150),
+            allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true
+            }
+        },
 
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
 
-    rol: {
-      type: DataTypes.ENUM(
-        "ADMIN",
-        "MEDICO",
-        "ENFERMERO",
-        "RECEPCIONISTA",
-        "PACIENTE"
-      ),
-      allowNull: false
-    },
+        rol: {
+            type: DataTypes.ENUM(
+                "ADMIN",
+                "MEDICO",
+                "ENFERMERO",
+                "RECEPCIONISTA",
+                "PACIENTE"
+            ),
+            allowNull: false
+        },
 
-    estado: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true
+        estado: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
+        }
+    },
+    {
+        tableName: "usuarios"
     }
-  },
-  {
-    tableName: "usuarios"
-  }
 );
 
 module.exports = Usuario;
