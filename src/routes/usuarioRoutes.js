@@ -7,20 +7,15 @@
 const express = require("express");
 const router = express.Router();
 
-const verifyToken =
-require("../middlewares/authMiddleware");
-
-const authorizeRoles =
-require("../middlewares/roleMiddleware");
+const verifyToken = require("../middlewares/authMiddleware");
+const authorizeRoles = require("../middlewares/roleMiddleware");
 
 const {
     getUsuarios,
     getUsuario,
     updateUsuario,
     deleteUsuario
-}
-=
-require("../controllers/usuarioController");
+} = require("../controllers/usuarioController");
 
 
 router.get(

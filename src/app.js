@@ -10,6 +10,9 @@ const morgan = require("morgan");
 
 const authRoutes = require("./routes/authRoutes");
 const usuarioRoutes = require("./routes/usuarioRoutes");
+const pacienteRoutes = require("./routes/pacienteRoutes");
+const medicoRoutes = require("./routes/medicoRoutes");
+const medicoPacienteRoutes = require("./routes/medicoPacienteRoutes");
 
 const app = express();
 
@@ -19,5 +22,8 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/usuarios", usuarioRoutes);
+app.use("/api/pacientes", pacienteRoutes);
+app.use("/api/medicos", medicoRoutes);
+app.use("/api/medicos", medicoPacienteRoutes);
 
 module.exports = app;

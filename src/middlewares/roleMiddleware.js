@@ -6,12 +6,19 @@ const authorizeRoles = (...roles) => {
 
     return (req, res, next) => {
 
+        console.log("Rol del usuario:", req.usuario.rol);
+        console.log("Roles permitidos:", roles);
+
+        if (!req.usuario) {
+            return res.status(401).json({
+                message: "Usuario no autenticado"
+            });
+        }
+
         if (!roles.includes(req.usuario.rol)) {
-
-        return res.status(403).json({
-            message: "Acceso denegado"
-        });
-
+            return res.status(403).json({
+                message: "Acceso denegado"
+            });
         }
 
         next();
