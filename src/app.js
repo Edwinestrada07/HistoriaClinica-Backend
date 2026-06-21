@@ -13,6 +13,7 @@ const usuarioRoutes = require("./routes/usuarioRoutes");
 const pacienteRoutes = require("./routes/pacienteRoutes");
 const medicoRoutes = require("./routes/medicoRoutes");
 const medicoPacienteRoutes = require("./routes/medicoPacienteRoutes");
+const historiaClinicaRoutes = require("./routes/historiaClinicaRoutes");
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/usuarios", usuarioRoutes);
 app.use("/api/pacientes", pacienteRoutes);
 app.use("/api/medicos", medicoRoutes);
-app.use("/api/medicos", medicoPacienteRoutes);
+app.use("/api/asignaciones", medicoPacienteRoutes);
+app.use("/api/historias-clinicas", historiaClinicaRoutes);
 
 module.exports = app;

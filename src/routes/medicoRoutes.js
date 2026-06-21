@@ -9,13 +9,7 @@ const router = express.Router();
 const verifyToken = require("../middlewares/authMiddleware");
 const authorizeRoles = require("../middlewares/roleMiddleware");
 
-const {
-    postMedico,
-    getMedicos,
-    getMedico,
-    updateMedico,
-    deleteMedico
-} = require("../controllers/medicoController");
+const {postMedico, getMedicos, getMedico, updateMedico,deleteMedico} = require("../controllers/medicoController");
 
 router.post(
     "/",

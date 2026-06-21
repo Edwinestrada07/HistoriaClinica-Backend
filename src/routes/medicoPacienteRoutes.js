@@ -8,11 +8,14 @@ const router = express.Router();
 const verifyToken = require("../middlewares/authMiddleware");
 const authorizeRoles = require("../middlewares/roleMiddleware");
 
-const {
-    asignarPaciente,
-    obtenerPacientesMedico,
+const {asignarPaciente, obtenerPacientesMedico, obtenerMisPacientes} = require("../controllers/medicoPacienteController");
+
+router.get(
+    "/mis-pacientes",
+    verifyToken,
+    authorizeRoles("MEDICO"),
     obtenerMisPacientes
-} = require("../controllers/medicoPacienteController");
+);
 
 router.post(
     "/:documento/pacientes",
@@ -26,13 +29,6 @@ router.get(
     verifyToken,
     authorizeRoles("ADMIN", "RECEPCIONISTA"),
     obtenerPacientesMedico
-);
-
-router.get(
-    "/mis-pacientes",
-    verifyToken,
-    authorizeRoles("MEDICO"),
-    obtenerMisPacientes
 );
 
 module.exports = router;

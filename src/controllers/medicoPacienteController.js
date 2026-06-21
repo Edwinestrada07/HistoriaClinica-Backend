@@ -11,7 +11,7 @@ const asignarPaciente = async (req, res) => {
     try {
 
         const { documento } = req.params;
-        const { pacienteId } = req.body;
+        const { pacienteId, estado, observaciones } = req.body;
 
         const medico = await Medico.findByPk(documento);
 
@@ -21,7 +21,7 @@ const asignarPaciente = async (req, res) => {
             });
         }
 
-        const paciente = await Paciente.findByPk(pacienteId);
+        const paciente = await Paciente.findByPk(pacienteId,);
 
         if (!paciente) {
             return res.status(404).json({

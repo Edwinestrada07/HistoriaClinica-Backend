@@ -19,6 +19,14 @@ const MedicoPaciente = sequelize.define(
             type: DataTypes.DATEONLY,
             allowNull: false,
             defaultValue: DataTypes.NOW
+        },
+
+        estado: {
+        type: DataTypes.TEXT
+        },
+
+        observaciones: {
+        type: DataTypes.TEXT
         }
     },
     {
