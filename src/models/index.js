@@ -8,6 +8,7 @@ const Paciente = require("./Paciente");
 const Medico = require("./Medico");
 const MedicoPaciente = require("./MedicoPaciente");
 const HistoriaClinica = require("./HistoriaClinica");
+const CitaMedica = require("./CitaMedica");
 
 // Usuario - Paciente
 
@@ -52,13 +53,37 @@ Paciente.belongsToMany(Medico, {
 // Paciente - Historia Clínica
 
 Paciente.hasOne(HistoriaClinica, {
-  foreignKey: "pacienteId",
-  as: "historiaClinica"
+    foreignKey: "pacienteId",
+    as: "historiaClinica"
 });
 
 HistoriaClinica.belongsTo(Paciente, {
-  foreignKey: "pacienteId",
-  as: "paciente"
+    foreignKey: "pacienteId",
+    as: "paciente"
+});
+
+// Paciente - Cita Médica
+
+Paciente.hasMany(CitaMedica, {
+    foreignKey: "pacienteId",
+    as: "citas"
+});
+
+CitaMedica.belongsTo(Paciente, {
+    foreignKey: "pacienteId",
+    as: "paciente"
+});
+
+// Médico - Cita Médica
+
+Medico.hasMany(CitaMedica, {
+    foreignKey: "medicoId",
+    as: "citas"
+});
+
+CitaMedica.belongsTo(Medico, {
+    foreignKey: "medicoId",
+    as: "medico"
 });
 
 module.exports = {
@@ -66,5 +91,6 @@ module.exports = {
     Paciente,
     Medico,
     MedicoPaciente,
-    HistoriaClinica
+    HistoriaClinica,
+    CitaMedica
 };

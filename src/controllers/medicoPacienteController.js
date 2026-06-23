@@ -11,7 +11,7 @@ const asignarPaciente = async (req, res) => {
     try {
 
         const { documento } = req.params;
-        const { pacienteId, estado, observaciones } = req.body;
+        const { pacienteId } = req.body;
 
         const medico = await Medico.findByPk(documento);
 

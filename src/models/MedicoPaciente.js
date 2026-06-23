@@ -22,11 +22,18 @@ const MedicoPaciente = sequelize.define(
         },
 
         estado: {
-        type: DataTypes.TEXT
+            type: DataTypes.ENUM(
+                "ACTIVO",
+                "INACTIVO",
+                "TRASLADADO"
+            ),
+            allowNull: false,
+            defaultValue: "ACTIVO"
         },
 
         observaciones: {
-        type: DataTypes.TEXT
+            type: DataTypes.TEXT,
+            defaultValue: ""
         }
     },
     {

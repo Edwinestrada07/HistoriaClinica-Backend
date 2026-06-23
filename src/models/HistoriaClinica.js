@@ -11,25 +11,26 @@ const HistoriaClinica = sequelize.define(
     "HistoriaClinica",
     {
         id: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
+            type: DataTypes.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
         },
 
         pacienteId: {
-        type: DataTypes.BIGINT,
-        allowNull: false,
-        unique: true
+            type: DataTypes.BIGINT,
+            allowNull: false,
+            unique: true
         },
 
         fechaCreacion: {
-        type: DataTypes.DATE,
-        allowNull: false,
-        defaultValue: DataTypes.NOW
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW
         },
 
         resumen: {
-        type: DataTypes.TEXT
+            type: DataTypes.TEXT,
+            allowNull: false
         }
     },
     {
